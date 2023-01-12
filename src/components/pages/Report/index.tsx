@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import { useGetConcorrencyQuery, useGetTripsQuery } from "api/apiSlice";
+import React, { useEffect, useState } from "react";
 
 import { EDataFilters, IReportQueryParams } from "types";
 import { dataKinds } from "utils/appConfig";
@@ -36,12 +37,17 @@ const fakeData: ISectionProps = {
   ],
 };
 
+
 const ReportPage: React.FunctionComponent = () => {
   const [queryParams, setQueryParams] = useState<IReportQueryParams>({
     filterIndex: EDataFilters.ALL,
     offset: 0,
     order: 10,
   });
+  
+  const { data: concurrencyData, isLoading } = useGetTripsQuery();
+  console.log({ concurrencyData });
+  useEffect(() => {}, []);
 
   return (
     <div>
