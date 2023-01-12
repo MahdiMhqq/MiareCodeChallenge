@@ -10,7 +10,7 @@ module.exports = {
         gray: "#ECEDEF",
         info: "#567EE5",
         // Main
-        primary: "rgba(113,28,133,1)",
+        primary: "#711c85",
         secondary: "rgba(248,191,0,1)",
         // Text
         tblack: "#4A4A4A",
@@ -19,6 +19,11 @@ module.exports = {
       },
       fontFamily: {
         vazir: ["Vazirmatn", "Serif"],
+      },
+      screens: {
+        xxs: "360px",
+        tablet: "768px",
+        desktop: "1024px",
       },
     },
   },

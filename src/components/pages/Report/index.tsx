@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 
-import BasicDropdown from "components/UI/BasicDropdown";
-import { dataFilters, EDataFilters } from "./services";
+import { EDataFilters, IReportQueryParams } from "types";
+import Header from "./Components/Header";
 
 const ReportPage: React.FunctionComponent = () => {
-  const [queryParams, setQueryParams] = useState({
+  const [queryParams, setQueryParams] = useState<IReportQueryParams>({
     filterIndex: EDataFilters.ALL,
     offset: 0,
     order: 10,
@@ -12,15 +12,7 @@ const ReportPage: React.FunctionComponent = () => {
 
   return (
     <div>
-      <BasicDropdown
-        title="نوع تراکنش"
-        activeItem={dataFilters[queryParams.filterIndex]}
-        items={dataFilters}
-        onChange={(_, index) => {
-          console.log({ _, index });
-          setQueryParams((prev) => ({ ...prev, filterIndex: index }));
-        }}
-      />
+      <Header queryParams={queryParams} setQueryParams={setQueryParams} />
     </div>
   );
 };

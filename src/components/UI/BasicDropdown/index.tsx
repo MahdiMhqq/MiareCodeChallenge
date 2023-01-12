@@ -18,16 +18,16 @@ const BasicDropdown: React.FunctionComponent<IBasicDropdown> = ({
 }) => {
   return (
     <div className={`flex items-center gap-x-3 ${customClass}`}>
-      <div className="font-bold">{title}</div>
+      <div className="font-bold text-sm tablet:text-base">{title}</div>
       <Listbox
         value={activeItem}
         onChange={(value) => onChange(value, items.indexOf(value))}
       >
         <div className="relative">
-          <Listbox.Button className="text-sm overflow-hidden flex border border-gray items-center w-full cursor-pointer rounded-lg bg-white text-right shadow-md focus:outline-none focus-visible:border-info focus-visible:ring-2 focus-visible:ring-info focus-visible:ring-opacity-75">
+          <Listbox.Button className="w-[24ch] text-sm overflow-hidden flex items-center cursor-pointer rounded-lg bg-white text-right shadow-md focus:outline-none focus-visible:border-info focus-visible:ring-2 focus-visible:ring-info focus-visible:ring-opacity-75">
             {({ open }) => (
               <>
-                <span className="block truncate px-3 font-bold">
+                <span className="block truncate px-3 font-bold grow text-sm tablet:text-base">
                   {activeItem}
                 </span>
                 <div className="aspect-square flex items-center justify-center w-8 h-8 border-r border-gray bg-info">
