@@ -8,6 +8,7 @@ module.exports = {
         black: "#000",
         white: "#fff",
         gray: "#ECEDEF",
+        info: "#567EE5",
         // Main
         primary: "rgba(113,28,133,1)",
         secondary: "rgba(248,191,0,1)",

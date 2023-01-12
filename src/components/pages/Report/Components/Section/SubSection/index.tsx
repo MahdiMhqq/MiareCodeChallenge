@@ -1,6 +1,6 @@
 import React from "react";
 
-function SubSection() {
+const SubSection: React.FunctionComponent = () => {
   return <div>SubSection</div>;
 }
 

@@ -1,7 +1,7 @@
 import "./assets/styles/global.css";
 import ReportPage from "./components/pages/Report";
 
-function App() {
+const App: React.FunctionComponent = () => {
   return <ReportPage />;
 }
 
