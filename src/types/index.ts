@@ -11,3 +11,16 @@ export interface IReportQueryParams {
   offset: number;
   order: number;
 }
+
+export interface IExpense {
+  id: number;
+  exactDate: string;
+  price: number;
+  kind: EDataFilters;
+  kindTitle: string;
+  searchable?: string[];
+  desc?: {
+    important?: string[];
+    info?: string[];
+  };
+}

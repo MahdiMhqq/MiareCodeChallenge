@@ -20,6 +20,27 @@ module.exports = {
       fontFamily: {
         vazir: ["Vazirmatn", "Serif"],
       },
+      fontSize: {
+        //HEADINGS
+        h1: ["2rem", "2.5rem"],
+        h2: ["1.5rem", "2rem"],
+        h3: ["1.25rem", "2rem"],
+        h4: ["1.125rem", "1.5rem"],
+        h5: ["1rem", "1.5rem"],
+        h6: ["0.75rem", "1rem"],
+        //SUBTITLE
+        sub1: ["1.125rem", "1.5rem"],
+        sub2: ["1rem", "1.5rem"],
+        sub3: ["0.75rem", "1rem"],
+        //PARAGRAPH
+        par: ["0.875rem", "1.5rem"],
+        //BUTTON
+        button: ["0.875rem", "1.5rem"],
+        //CAPTION
+        caption: ["0.625rem", "1rem"],
+        //OVERLINE
+        overline: ["0.5rem", "1rem"],
+      },
       screens: {
         xxs: "360px",
         tablet: "768px",
