@@ -10,7 +10,8 @@ export const concurrencyExtendedApiSlice = apiSlice.injectEndpoints({
       query: () => "/concurrency_costs",
       transformResponse: (response: IConcurrencyResponse[]) => {
         // Normalize Data to IExpense Data Type
-        const transformedExpenses = translator[EDataKinds.CONCURRENCY](response);
+        const transformedExpenses =
+          translator[EDataKinds.CONCURRENCY](response);
 
         return dateSortCategorize(transformedExpenses);
       },

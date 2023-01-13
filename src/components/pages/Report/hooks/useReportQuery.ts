@@ -17,6 +17,9 @@ function useReportQuery(initialState: IReportQueryParams) {
   const [queryParams, setQueryParams] = useState(initialState);
 
   // API CALL HOOKS
+  const all = ApiHooks.useGetAllQuery(undefined, {
+    skip: queryParams.filterIndex !== 0,
+  });
   const concurrency = ApiHooks.useGetConcurrenciesQuery(undefined, {
     skip: queryParams.filterIndex !== EDataKinds.CONCURRENCY + 1,
   });
@@ -30,7 +33,7 @@ function useReportQuery(initialState: IReportQueryParams) {
     skip: queryParams.filterIndex !== EDataKinds.MISC + 1,
   });
 
-  const apiCalls = [payment, concurrency, payment, trip, misc];
+  const apiCalls = [all, concurrency, payment, trip, misc];
 
   return {
     queryParams,

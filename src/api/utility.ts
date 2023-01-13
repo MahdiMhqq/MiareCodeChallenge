@@ -14,7 +14,7 @@ export const categorizedDate = (
   const dayDates = datesArr
     .map((date) => {
       if (DateTime.fromISO(date)?.isValid) {
-        return DateTime.fromISO(date).toFormat("yyyy-MM-dd");
+        return DateTime.fromISO(date).toLocal().toFormat("yyyy-MM-dd");
       } else {
         return null;
       }
@@ -27,11 +27,26 @@ export const categorizedDate = (
   // Categorize Expenses by date
   const categorizedExpenses: IDateCategorizedExpenses[] = uniqueDayDates.map(
     (uniqueDate) => {
-      const uniqueDateExpenses: IExpense[] = expenses.filter((expense) =>
-        expense.exactDate.includes(uniqueDate)
-      );
+      const uniqueDateExpenses: IExpense[] = expenses
+        .filter((expense) => expense.exactDate.includes(uniqueDate))
+        ?.map((expense) => ({
+          ...expense,
+          exactDate: DateTime.fromISO(expense.exactDate)
+            .toLocal()
+            .setLocale("fa-IR")
+            .toLocaleString({
+              day: "2-digit",
+              month: "2-digit",
+              year: "numeric",
+              hour: "2-digit",
+              minute: "2-digit",
+              hourCycle: "h23",
+            }),
+        }));
       return {
-        date: uniqueDate,
+        date: DateTime.fromFormat(uniqueDate, "yyyy-MM-dd")
+          .setLocale("fa-IR")
+          .toLocaleString(),
         expenses: uniqueDateExpenses,
       };
     }
