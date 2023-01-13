@@ -36,6 +36,30 @@
             "datetime": "2022-04-18T16:58:47.678934+04:30",
             "amount": -7140000,
             "description": null
+        },
+        {
+            "id": 1990721,
+            "datetime": "2022-04-18T15:58:47.678934+04:30",
+            "amount": -7140000,
+            "description": null
+        },
+        {
+            "id": 199032,
+            "datetime": "2022-04-22T14:57:09.959629+04:30",
+            "amount": -100000,
+            "description": null
+        },
+        {
+            "id": 1990321,
+            "datetime": "2022-04-22T18:57:09.959629+04:30",
+            "amount": -100000,
+            "description": null
+        },
+        {
+            "id": 1992132,
+            "datetime": "2022-04-23T14:57:09.959629+04:30",
+            "amount": -100000,
+            "description": null
         }
     ],
     "misc_expenses": [

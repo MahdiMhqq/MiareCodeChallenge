@@ -23,6 +23,7 @@ const Section: React.FunctionComponent<ISectionProps> = ({
           <div className="px-8 tablet:px-16">
             {expenses.map((expense) => (
               <ExpenseDetails
+                key={expense.id}
                 expense={expense}
                 customClass={"border-b border-gray last:border-b-0"}
               />

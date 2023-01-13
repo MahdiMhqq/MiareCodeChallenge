@@ -24,3 +24,8 @@ export interface IExpense {
     info?: string[];
   };
 }
+
+export interface IDateCategorizedExpenses {
+  date: string;
+  expenses: IExpense[];
+}
