@@ -1,27 +1,29 @@
-import { useGetPaymentsQuery } from "api/payment";
 import NoData from "components/UI/NoData";
 import React, { useEffect, useState } from "react";
 
-import { EDataFilters, IReportQueryParams } from "types";
+import { EDataFilters } from "types";
 
 import Header from "./Components/Header";
 import Section from "./Components/Section";
+import useReportQuery from "./hooks/useReportQuery";
+
+const initialQueryParams = {
+  filterIndex: EDataFilters.ALL,
+  offset: 0,
+  order: 10,
+};
 
 const ReportPage: React.FunctionComponent = () => {
-  const [queryParams, setQueryParams] = useState<IReportQueryParams>({
-    filterIndex: EDataFilters.ALL,
-    offset: 0,
-    order: 10,
-  });
-
-  const { data: paymentData, isLoading } = useGetPaymentsQuery();
-  console.log({ paymentData });
+  // Query Param Custom Hook
+  const { queryOutput, queryParams, setQueryParams } =
+    useReportQuery(initialQueryParams);
+  const { data, isLoading, isFetching, isSuccess, error } = queryOutput;
 
   return (
     <div>
       <Header queryParams={queryParams} setQueryParams={setQueryParams} />
-      {paymentData && paymentData.length > 0 ? (
-        paymentData.map((data) => (
+      {data && data.length > 0 ? (
+        data.map((data) => (
           <Section key={data.date} date={data.date} expenses={data.expenses} />
         ))
       ) : (

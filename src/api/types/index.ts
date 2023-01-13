@@ -5,7 +5,7 @@ export interface ITripResponse {
   driver: string;
   final_price: number;
   source_title: string;
-  hub?: {
+  hub: {
     id: number;
     title: string;
   };

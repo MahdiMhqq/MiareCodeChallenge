@@ -1,10 +1,12 @@
 import { DateTime } from "luxon";
 import { IDateCategorizedExpenses, IExpense } from "types";
 
+// Sort By Desc Time
 export const dateSort = (expenses: IExpense[]) => {
   return [...expenses].sort((a, b) => b.exactDate.localeCompare(a.exactDate));
 };
 
+// Categorize Data Day by Day
 export const categorizedDate = (
   expenses: IExpense[]
 ): IDateCategorizedExpenses[] => {
@@ -36,4 +38,10 @@ export const categorizedDate = (
   );
 
   return categorizedExpenses;
+};
+
+export const dateSortCategorize = (
+  expenses: IExpense[]
+): IDateCategorizedExpenses[] => {
+  return categorizedDate(dateSort(expenses));
 };

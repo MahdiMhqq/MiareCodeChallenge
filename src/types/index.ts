@@ -1,3 +1,10 @@
+export enum EDataKinds {
+  CONCURRENCY,
+  PAYMENTS,
+  TRIP,
+  MISC,
+}
+
 export enum EDataFilters {
   ALL,
   CONCURRENCY,
@@ -16,9 +23,11 @@ export interface IExpense {
   id: number;
   exactDate: string;
   price: number;
-  kind: EDataFilters;
+  kind: EDataKinds;
   kindTitle: string;
-  searchable?: string[];
+  searchable?: {
+    driver: string;
+  };
   desc?: {
     important?: string[];
     info?: string[];

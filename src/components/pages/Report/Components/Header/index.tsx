@@ -22,7 +22,10 @@ const Header: React.FunctionComponent<IHeaderProps> = ({
         activeItem={dataFilters[queryParams.filterIndex]}
         items={dataFilters}
         onChange={(_, index) => {
-          setQueryParams((prev) => ({ ...prev, filterIndex: index }));
+          setQueryParams((prev) => ({
+            ...prev,
+            filterIndex: index,
+          }));
         }}
         customClass="mr-auto"
       />

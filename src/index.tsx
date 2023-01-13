@@ -2,21 +2,17 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-
-import { store } from "store";
-import { Provider } from "react-redux";
-import { paymentExtendedApiSlice } from "api/payment";
+import { ApiProvider } from "@reduxjs/toolkit/dist/query/react";
+import { apiSlice } from "api/apiSlice";
 
 const rootElement = document.getElementById("root");
 const root = ReactDOM.createRoot(rootElement as HTMLElement);
 
-store.dispatch(paymentExtendedApiSlice.endpoints.getPayments.initiate());
-
 root.render(
   <React.StrictMode>
-    <Provider store={store}>
+    <ApiProvider api={apiSlice}>
       <App />
-    </Provider>
+    </ApiProvider>
   </React.StrictMode>
 );
 
