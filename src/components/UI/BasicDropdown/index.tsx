@@ -1,5 +1,6 @@
-import React, { Fragment, useEffect, useRef, useState } from "react";
+import React, { Fragment } from "react";
 import { Listbox, Transition } from "@headlessui/react";
+
 import icons from "utils/icons";
 
 interface IBasicDropdown {

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import ApiHooks from "api/apiHooks";
 
 import { EDataKinds, IReportQueryParams } from "types";

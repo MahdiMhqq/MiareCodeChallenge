@@ -4,10 +4,12 @@ import { useGetTripsQuery } from "./translator/trip";
 import { useGetMiscsQuery } from "./translator/misc";
 import { useGetAllQuery } from "./translator/all";
 
-export default {
+const ApiHooks = {
   useGetConcurrenciesQuery,
   useGetPaymentsQuery,
   useGetTripsQuery,
   useGetMiscsQuery,
   useGetAllQuery,
 };
+
+export default ApiHooks;
