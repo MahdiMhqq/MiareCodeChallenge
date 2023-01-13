@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ApiHooks from "api/apiHooks";
 
 import { EDataKinds, IReportQueryParams } from "types";
@@ -26,14 +26,30 @@ function useReportQuery(initialState: IReportQueryParams) {
   const payment = ApiHooks.useGetPaymentsQuery(undefined, {
     skip: queryParams.filterIndex !== EDataKinds.PAYMENTS + 1,
   });
-  const trip = ApiHooks.useGetTripsQuery(undefined, {
-    skip: queryParams.filterIndex !== EDataKinds.TRIP + 1,
-  });
+  const trip = ApiHooks.useGetTripsQuery(
+    {
+      offset: queryParams.offset,
+      order: queryParams.order,
+      search: queryParams.search,
+    },
+    {
+      skip: queryParams.filterIndex !== EDataKinds.TRIP + 1,
+    }
+  );
   const misc = ApiHooks.useGetMiscsQuery(undefined, {
     skip: queryParams.filterIndex !== EDataKinds.MISC + 1,
   });
 
   const apiCalls = [all, concurrency, payment, trip, misc];
+
+  // LIFE CYCLE METHODS
+  useEffect(() => {
+    setQueryParams((prev) => ({ ...prev, offset: 0, order: 10 }));
+  }, [queryParams.search]);
+
+  useEffect(() => {
+    setQueryParams((prev) => ({ ...prev, offset: 0, order: 10, search: "" }));
+  }, [queryParams.filterIndex]);
 
   return {
     queryParams,

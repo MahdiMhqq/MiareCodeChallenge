@@ -15,9 +15,13 @@ export enum EDataFilters {
 
 export interface IReportQueryParams {
   filterIndex: EDataFilters;
+  search: string;
   offset: number;
   order: number;
 }
+
+export type IApiCallParams = Pick<IReportQueryParams, "offset" | "order">;
+export type ITripApiCallParams = Pick<IReportQueryParams, "offset" | "order" | "search">;
 
 export interface IExpense {
   id: number;

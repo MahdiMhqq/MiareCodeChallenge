@@ -13,6 +13,7 @@ import {
   IPaymentResponse,
   ITripResponse,
 } from "api/types";
+import { DateTime } from "luxon";
 import { EDataKinds, IExpense } from "types";
 import { dataKinds } from "utils/appConfig";
 
@@ -27,7 +28,17 @@ export const concurrencyTranslate = (
     exactDate: conc.created_at,
     desc: {
       important: [
-        `خرید ظرفیت، از تاریخ ${conc.start_date} تا ${conc.end_date}`,
+        `خرید ظرفیت، از تاریخ ${DateTime.fromFormat(
+          conc.start_date,
+          "yyyy-MM-dd"
+        )
+          .setLocale("fa-IR")
+          .toLocaleString()} تا ${DateTime.fromFormat(
+          conc.end_date,
+          "yyyy-MM-dd"
+        )
+          .setLocale("fa-IR")
+          .toLocaleString()}`,
       ],
     },
   }));

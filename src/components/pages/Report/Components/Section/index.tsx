@@ -17,10 +17,10 @@ const Section: React.FunctionComponent<ISectionProps> = ({
     <>
       {expenses.length > 0 && (
         <section className={`mb-8 ${customClass}`}>
-          <h6 className="bg-gray px-8 tablet:px-16 py-3 font-medium text-tblack text-sm tablet:text-base">
+          <h6 className="bg-gray px-4 tablet:px-8 desktop:px-16 py-3 font-medium text-tblack text-sm tablet:text-base">
             {date}
           </h6>
-          <div className="px-8 tablet:px-16">
+          <div className="px-4 tablet:px-8 desktop:px-16">
             {expenses.map((expense) => (
               <ExpenseDetails
                 key={expense.id}

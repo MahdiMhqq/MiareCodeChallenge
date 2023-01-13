@@ -1,10 +1,7 @@
 import React from "react";
 
-import Error from "components/UI/Error";
-import Loading from "components/UI/Loading";
-import NoData from "components/UI/NoData";
 import Header from "./Components/Header";
-import Section from "./Components/Section";
+import Scrollable from "./Components/Scrollable";
 
 import useReportQuery from "./hooks/useReportQuery";
 
@@ -14,6 +11,7 @@ const initialQueryParams = {
   filterIndex: EDataFilters.ALL,
   offset: 0,
   order: 10,
+  search: "",
 };
 
 const ReportPage: React.FunctionComponent = () => {
@@ -23,24 +21,23 @@ const ReportPage: React.FunctionComponent = () => {
   const { data, isLoading, isFetching, isSuccess, isError, error } =
     queryOutput;
 
-  // Render Content
-  const content =
-    isLoading || isFetching ? (
-      <Loading customClass="mx-auto w-max" />
-    ) : isError ? (
-      <Error error={error} customClass="mx-auto w-max" />
-    ) : isSuccess && data && data.length > 0 ? (
-      data.map((data) => (
-        <Section key={data.date} date={data.date} expenses={data.expenses} />
-      ))
-    ) : (
-      <NoData customClass="mx-auto w-max" />
-    );
-
   return (
-    <div>
-      <Header queryParams={queryParams} setQueryParams={setQueryParams} />
-      {content}
+    <div className="flex flex-col h-screen">
+      <Header
+        queryParams={queryParams}
+        setQueryParams={setQueryParams}
+        customClass={"sticky top-0 left-0 right-0 z-20"}
+      />
+      <Scrollable
+        customClass="grow"
+        data={data}
+        error={error}
+        isError={isError}
+        isFetching={isFetching}
+        isLoading={isLoading}
+        isSuccess={isSuccess}
+        setQueryParams={setQueryParams}
+      />
     </div>
   );
 };

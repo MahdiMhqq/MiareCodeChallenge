@@ -1,5 +1,6 @@
 import React from "react";
 import { IExpense } from "types";
+import { e2p } from "utils/globals";
 
 interface IExpenseDetails {
   expense: IExpense;
@@ -25,10 +26,12 @@ const ExpenseDetails: React.FunctionComponent<IExpenseDetails> = ({
           }`}
         >
           {expense.price
-            ? expense.price.toLocaleString(undefined, {
-                signDisplay: "always",
-                maximumFractionDigits: 1,
-              })
+            ? e2p(
+                expense.price.toLocaleString(undefined, {
+                  signDisplay: "always",
+                  maximumFractionDigits: 1,
+                })
+              )
             : "رایگان"}
         </span>
       </div>

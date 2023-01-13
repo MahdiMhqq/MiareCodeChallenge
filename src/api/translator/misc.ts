@@ -1,6 +1,6 @@
 import { apiSlice } from "api/apiSlice";
 import { IMiscResponse } from "api/types";
-import {  dateSortCategorize } from "api/utility";
+import { dateSortCategorize } from "api/utility";
 import { IDateCategorizedExpenses, EDataKinds } from "types";
 import { translator } from ".";
 
